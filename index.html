@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="jquery-1.11.1.min.js"></script>
+        <script src="jquery.validate.js"></script>
+        
+        <script>
+          $(document).ready(function() {
+                $("#myForm").validate({
+                    rules: {
+                        txtFname:"required",
+                        txtLname: "required",
+                        txtemail:{
+                            required:true,
+                            email:true,
+                        },
+                        psw:"required",
+                        confirmpsd:{
+                            required:true,
+                            equalTo:"#psw",
+                            
+                        }
+                        
+                    },
+                    messages: {
+                        txtFname: "Enter the first name",
+                        txtLname: "Please enter your lastname",
+                        txtemail:"this is invalid",
+                        psw:"is empty",
+                        confirmpsd:{
+                            required:"Confirm box is empty",
+                            equalTo:"Not equal to password",
+                            
+                        }
+                     
+                    }
+                });
+            });
+          
+        </script>
+        
+        
+    </head>
+    <body>
+        
+        <form id="myForm" name="myform" action="test.html" method="post"/>
+        <label>First Name </label> <input type="text" name="txtFname" id="txtFname" /> <br/>
+        <label>Last Name </label> <input type="text" name="txtLname" id="txtLname" /> <br/>
+        <label>Email </label> <input type="text" name="txtemail" id="txtemail" /> <br/>
+        <label>Password </label> <input type="password" name="psw" id="psw" /> <br/>
+        <label>Confirm  </label> <input type="text" name="confirmpsd" id="confirmpsd" /> <br/>
+        <input class="submit" type="submit" value="Submit"/>
+        
+    </form>
+        
+    </body>
+</html>
